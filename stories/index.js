@@ -141,6 +141,7 @@ storiesOf("Button", module)
       import Status from "components/Appointment/Status";
       import Error from "components/Appointment/Error";
       import Form from "components/Appointment/Form";
+      import { Fragment } from 'react'
 
 
       storiesOf("Appointment", module)
@@ -172,3 +173,19 @@ storiesOf("Button", module)
               interviewers={interviewers}
               onSave= {action("save")}
               onCancel={action("cancel")}/>)
+      .add("Appointment Empty", () => (
+                <Fragment>
+                  <Appointment id={1} time="12pm" />
+                  <Appointment id="last" time="1pm" />
+                </Fragment>
+              ))
+      .add("Appointment Booked", () => (
+                <Fragment>
+                  <Appointment
+                    id={1}
+                    time="12pm"
+                    interview={{ student: "Lydia Miller-Jones", interviewer }}
+                  />
+                  <Appointment id="last" time="1pm" />
+                </Fragment>
+              ))
