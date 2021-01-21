@@ -1,5 +1,5 @@
 
-function getAppointmentsForDay(state, day) {
+const getAppointmentsForDay = (state, day) => {
     let appointmentsIds=[];
     let appointmentsObjects=[];
 
