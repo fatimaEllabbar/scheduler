@@ -121,14 +121,14 @@ storiesOf("Button", module)
         .add("Initial", () => (
           <InterviewerList
             interviewers={interviewers}
-            setInterviewer={action("setInterviewer")}
+            onChange={action("onchange")}
           />
         ))
         .add("Preselected", () => (
           <InterviewerList
             interviewers={interviewers}
-            interviewer={3}
-            setInterviewer={action("setInterviewer")}
+            value={2}
+            onChange={action("onchange")}
           />
         ));
 
@@ -140,6 +140,7 @@ storiesOf("Button", module)
       import Confirm from "components/Appointment/Confirm";
       import Status from "components/Appointment/Status";
       import Error from "components/Appointment/Error";
+      import Form from "components/Appointment/Form";
 
 
       storiesOf("Appointment", module)
@@ -160,4 +161,14 @@ storiesOf("Button", module)
               onCancel={action("cancel")} />)
       .add("Status", () => <Status message={"Deleting"} />)
       .add("Error", () => <Error message={"Could not delete appointment."}
-              onClose={action("onClose")} />);
+              onClose={action("onClose")} />)
+      .add("Edit", () => <Form  
+              name={"Lydia Miller-Jones"}
+              interviewers={interviewers}
+              interviewer={2}
+              onSave= {action("save")}
+              onCancel={action("cancel")}/>)
+      .add("Create", () => <Form  
+              interviewers={interviewers}
+              onSave= {action("save")}
+              onCancel={action("cancel")}/>)
