@@ -34,4 +34,21 @@ const getInterview = (state, interview) => {
    }
 }
 
-export  { getAppointmentsForDay , getInterview };
+const getInterviewersForDay = (state, day) => {
+    let interviewersIds=[];
+    let interviewersObjects=[];
+
+    state.days.map( item => {
+     if(day === item.name){
+        interviewersIds = [...item.interviewers];
+     }
+    });
+
+    for( let id of interviewersIds) {
+        interviewersObjects.push(state.interviewers[id])
+    }
+
+    return  interviewersObjects;
+} 
+
+export  { getAppointmentsForDay , getInterview , getInterviewersForDay };
