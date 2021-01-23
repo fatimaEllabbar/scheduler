@@ -7,6 +7,7 @@ const getAppointmentsForDay = (state, day) => {
      if(day === item.name){
          appointmentsIds = [...item.appointments];
      }
+     return appointmentsIds ;
     });
 
     for( let id of appointmentsIds) {
@@ -43,6 +44,7 @@ const getInterviewersForDay = (state, day) => {
      if(day === item.name){
         interviewersIds = [...item.interviewers];
      }
+     return interviewersIds;
     });
 
     for( let id of interviewersIds) {
