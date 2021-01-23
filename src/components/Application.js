@@ -21,10 +21,7 @@ export default function Application(props) {
   });
 
   useEffect(()=>{
-    axios.get()
-    .then(resposnse => {
-     
-    })
+    
     Promise.all([
       axios.get('http://localhost:8001/api/days'),
       axios.get('http://localhost:8001/api/appointments'),
@@ -37,6 +34,8 @@ export default function Application(props) {
     })
   },[])
 
+  console.log(state);
+
 
  
 const setDay = day => setState({ ...state, day });
@@ -46,6 +45,45 @@ const dailyAppointments = getAppointmentsForDay(state, state.day);
 const dailyInterviewers = getInterviewersForDay(state, state.day);
 console.log(dailyInterviewers)
 
+function bookInterview(id, interview) {
+  const appointment = {
+    ...state.appointments[id],
+    interview: { ...interview }
+  };
+ 
+  const appointments = {
+    ...state.appointments,
+    [id]: appointment
+  };
+
+  const url =`http://localhost:8001/api/appointments/`+id
+  axios.put(url,{
+      interview
+    })
+    .catch((error) => {
+      console.log(error.response.status);
+      console.log(error.response.headers);
+      console.log(error.response.data);
+    });
+
+  setState(prev => ({...prev,   appointments }));
+
+   
+}
+
+function cancelInterview (id) {
+
+  console.log("delete "+id)
+  let newAppointments = state.appointments;
+  newAppointments[id].interview = null ;
+
+  const url =`http://localhost:8001/api/appointments/`+id
+
+  axios.delete(url).then(res => console.log(res));
+
+  setState(prev => ({...prev,   newAppointments }));
+ 
+}
 
   return (
     <main className="layout">
@@ -75,10 +113,15 @@ console.log(dailyInterviewers)
             time={appointment.time}
             interview={interview}
             interviewers = {dailyInterviewers }
+            bookInterview = {bookInterview}
+            cancelInterview = {cancelInterview}
+
             />
           )
         }) }
       </section>
+      
+     
     </main>
   );
 }

@@ -18,7 +18,8 @@ const getAppointmentsForDay = (state, day) => {
 
 const getInterview = (state, interview) => {
     
-    if(interview === null ) {
+    if(interview === null || state === null || interview.interviewer === null ||
+         state.interviewers[interview.interviewer] === null) {
         return null;
     } else {
 

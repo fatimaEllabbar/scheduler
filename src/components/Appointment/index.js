@@ -7,6 +7,8 @@ import Confirm from "./Confirm";
 import Header from "./Header";
 import Empty from "./Empty";
 import Form from "./Form";
+import Status from "./Status";
+
 import useVisualMode from "../hooks/useVisualMode";
 
 import "./styles.scss"
@@ -14,6 +16,9 @@ import "./styles.scss"
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const SAVING = "SAVING";
+const DELETING = "DELETING"
+const CONFIRM = "CONFIRM"
 
 
 
@@ -23,6 +28,29 @@ export default function Appointment(props) {
         props.interview ? SHOW : EMPTY
       );
 
+
+    function save(name, interviewer) {
+
+        const interview = {
+          student: name,
+          interviewer
+        };
+
+       transition(SAVING);
+
+       props.bookInterview(props.id, interview);
+     
+       transition(SHOW);
+    }
+
+    function deleteApp(id) {
+
+        transition(DELETING);
+        props.cancelInterview(props.id);
+        transition(EMPTY);
+
+    }
+
     return (
         <article className="appointment">
             <Header time = {props.time} />
@@ -31,9 +59,21 @@ export default function Appointment(props) {
                     <Show
                         student={props.interview.student}
                         interviewer={props.interview.interviewer}
+                        onDelete = {() => transition(CONFIRM)}
                     />
                 )}
-                {mode === CREATE && <Form interviewers = {props.interviewers} onCancel={() => transition(EMPTY)}/>}
+                {mode === CREATE && <Form
+                                         interviewers = {props.interviewers}
+                                         onSave={save}
+                                         onCancel={() => transition(EMPTY)}
+                                    />
+                }
+                {mode === SAVING &&  <Status message={"Saving"} /> }
+                {mode === DELETING &&  <Status message={"Deleting"} /> }
+                {mode === CONFIRM &&  <Confirm 
+                                        message={"Delete the appointment?"}
+                                        onConfirm={deleteApp}
+                                        onCancel={() => back()} /> }
         </article>
     );
 
