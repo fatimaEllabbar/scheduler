@@ -1,6 +1,7 @@
 import { useState , useEffect } from "react"; 
 
-const axios=require('axios');
+
+import axios from "axios";
 
 export default function useApplicationData() {
 
@@ -13,9 +14,9 @@ export default function useApplicationData() {
 
     function load() {
         Promise.all([
-          axios.get('http://localhost:8001/api/days'),
-          axios.get('http://localhost:8001/api/appointments'),
-          axios.get('http://localhost:8001/api/interviewers')
+          axios.get('/api/days'),
+          axios.get('/api/appointments'),
+          axios.get('/api/interviewers')
         ]).then((all) => {
           const [days, appointments, interviewers] = all;
           setState(prev => ({...prev, days: days.data,  appointments:  appointments.data ,
@@ -33,7 +34,7 @@ export default function useApplicationData() {
     function bookInterview(id, interview) {
         return new Promise((resove, reject) => {
         
-        const url =`http://localhost:8001/api/appointments/`+id
+        const url =`/api/appointments/`+id
         axios.put(url,{
             interview
           }).then(res => {  
@@ -57,7 +58,7 @@ export default function useApplicationData() {
     function cancelInterview (id) {
         return new Promise((resove, reject) => {
       
-        const url =`http://localhost:8001/api/appointments/`+id
+        const url =`/api/appointments/`+id
     
         axios.delete(url)
         .then(res => {
