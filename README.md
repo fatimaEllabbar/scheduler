@@ -25,11 +25,11 @@
         Storybook, Webpack Dev Server, Jest, Testing Library, Cypress
 
  ## Final Product
-- Compose Tweet:
+- Display scheduler:
 
-!["Screenshot of tweet-box"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/KR4dze7.gif)
+!["Screenshot of scheduler"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/KR4dze7.gif)
 
-- List of Tweets:
+
 
 ## Setup
 
@@ -52,22 +52,3 @@ npm test
 ```sh
 npm run storybook
 ```
-
-
-
-## Final Product
-- Compose Tweet:
-
-!["Screenshot of tweet-box"](https://github.com/fatimaEllabbar/tweeter/blob/master/public/docs/tweet-box1.png)
-
-- List of Tweets:
-
-!["Screenshot of the list of the tweets"](https://github.com/fatimaEllabbar/tweeter/blob/master/public/docs/tweets.png)
-
-- Validation error if the tweet is empty:
-
-!["Screenshot of error message"](https://github.com/fatimaEllabbar/tweeter/blob/master/public/docs/error-empty.png)
-
-- Hide the tweet box by clicking on the toggle button on the navigation bar: 
-
-!["Screenshot of hiding the tweet box"](https://github.com/fatimaEllabbar/tweeter/blob/master/public/docs/hide-tweet-box.png)
