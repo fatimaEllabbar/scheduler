@@ -27,7 +27,7 @@
  ## Final Product
 - Compose Tweet:
 
-!["Screenshot of tweet-box"](https://github.com/fatimaEllabbar/tweeter/blob/master/public/docs/tweet-box1.png)
+!["Screenshot of tweet-box"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/KR4dze7.gif)
 
 - List of Tweets:
 
