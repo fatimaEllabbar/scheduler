@@ -24,7 +24,8 @@ export default function useApplicationData() {
     
         })
     }
-    
+   
+   
     useEffect(()=>{
         load();
     },[])
@@ -32,8 +33,7 @@ export default function useApplicationData() {
     const setDay = day => setState({ ...state, day });
 
     function bookInterview(id, interview) {
-        return new Promise((resove, reject) => {
-        
+        return new Promise((resove, reject) => { 
         const url =`/api/appointments/`+id
         axios.put(url,{
             interview
