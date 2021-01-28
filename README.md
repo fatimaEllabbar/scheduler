@@ -1,7 +1,7 @@
 # Interview Scheduler
 - Functional Requirements
-    • Development focuses on a single page application (SPA) called Interview Scheduler, built using React.
-    • Data is persisted by the API server using a PostgreSQL database.
+    -- Development focuses on a single page application (SPA) called Interview Scheduler, built using React.
+    -- Data is persisted by the API server using a PostgreSQL database.
     • The client application communicates with an API server over HTTP, using the JSON format.
     • Jest tests are used through the development of the project.
 - Behavioural Requirements
@@ -25,9 +25,24 @@
         Storybook, Webpack Dev Server, Jest, Testing Library, Cypress
 
  ## Final Product
+
 - Display scheduler:
 
-!["Screenshot of scheduler"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/KR4dze7.gif)
+!["Screenshot of scheduler"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/display.gif)
+
+
+- Book Appointment: 
+
+!["Screenshot of Book Appointment "](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/bookAppointment.gif)
+
+
+- Cancel Appointment: 
+
+!["Screenshot of Cancel Appointment"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/cancelAppointment.gif)
+
+- Manage Errors: 
+
+!["Screenshot of Manage Errors"](https://github.com/fatimaEllabbar/scheduler/blob/master/public/docs/handlingError.gif)
 
 
 
